@@ -108,37 +108,7 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 .sect-banner.s6{background:var(--green)}
 .sect-banner b{font-family:var(--disp);font-size:14px;display:block;margin-bottom:2px}
 
-/* Тренажёр */
-.score-panel{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:50;background:var(--asphalt);color:#fff;border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
-.score-panel .row{display:flex;align-items:center;gap:16px}
-.score-panel .big{font-family:var(--disp);font-size:42px;line-height:1}
-.score-panel .big.fail{color:#ff6b5e}
-.score-panel .big.ok{color:#6fe09a}
-.score-panel .info{flex:1}
-.score-panel .verdict{font-size:14px;font-weight:700}
-.score-panel .verdict.fail{color:#ff8a80}
-.score-panel .verdict.ok{color:#7ee2a8}
-.score-panel .verdict.warn{color:#ffd25e}
-.score-panel .segbar{display:flex;gap:4px;margin-top:10px}
-.score-panel .seg{flex:1;height:10px;border-radius:4px;background:#3a3f47}
-.score-panel .seg.fill{background:var(--red)}
-.score-panel .seg.fill.warn{background:var(--amber)}
-.score-panel .seg.fill.ok{background:var(--green)}
-.reset-btn{width:100%;padding:12px;border-radius:10px;background:#3a3f47;color:#fff;font-weight:700;font-size:14px;margin-top:12px;transition:background .2s}
-.reset-btn:active{background:#4a4f57}
-
-.sim-item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
-.sim-item .t{flex:1;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.3}
-.sim-item .sub{font-size:11.5px;color:var(--mut);font-weight:400;display:block}
-.sim-item .ctrl{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.sim-item .cnt{font-family:var(--disp);font-size:18px;min-width:24px;text-align:center}
-.sim-item .btn{width:36px;height:36px;border-radius:50%;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid;transition:transform .1s}
-.sim-item .btn:active{transform:scale(.9)}
-.sim-item .btn.plus{border-color:var(--green);color:var(--green);background:#e9f6ee}
-.sim-item .btn.minus{border-color:var(--red);color:var(--red);background:#fdeceb}
-.sim-item.fatal .btn{border-color:var(--red);color:var(--red);background:#fdeceb}
-.sim-item.has{border-color:var(--red);background:#fff5f4}
-
+/* ПДД */
 .pdd-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
 .pdd-item .num{font-family:var(--disp);font-size:14px;color:var(--blue);margin-bottom:6px}
 .pdd-item .text{font-size:13.5px;color:#3d4450;line-height:1.5}
@@ -167,83 +137,9 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 </head>
 <body>
 
-<header class="top">
-  <div class="appbar">
-    <div class="tl-mini"><i></i><i></i><i></i></div>
-    <div class="brand"><b>ЭКЗАМЕН · КАТЕГОРИЯ «B»</b><span>Приказ МВД России от 20.02.2021 № 80 (ред. 26.05.2025)</span></div>
-  </div>
-  <div class="roadline"></div>
-</header>
-
 <main>
-  <!-- ВКЛАДКА: ЭКЗАМЕН -->
-  <section class="tab active" id="tab-exam">
-    <h2 class="h2">Как проходит экзамен</h2>
-    <p class="sub">Практический экзамен на право управления транспортными средствами категорий «B», «C», «D», «BE», «CE», «DE» и подкатегорий</p>
-
-    <div class="banner blue">
-      <b>Проверка навыков</b>
-      <p>Проверяется соблюдение ПДД при движении по маршруту и выполнение манёвров: постановка ТС на место стоянки при движении задним ходом с поворотом на 90°, параллельная парковка, разворот в ограниченном пространстве, остановка и начало движения на подъёме, а также манёвры в условиях дорожного движения.</p>
-    </div>
-
-    <div class="banner green">
-      <b>Где проводится</b>
-      <p>Манёвры выполняются на закрытых площадках, автодромах (в том числе автоматизированных), территориях с твёрдым покрытием и ограниченным движением, и (или) на участках дорог с малоинтенсивным движением, тупиковых участках дорог, преимущественно за пределами жилой застройки.</p>
-    </div>
-
-    <div class="card">
-      <h3>Последовательность выполнения</h3>
-      <p>При движении по маршруту кандидат в водители по команде экзаменатора выполняет манёвры, предусмотренные пунктом 14 Правил проведения экзаменов. Последовательность выполнения манёвров определяется экзаменатором в процессе проведения экзамена.</p>
-      <p>В случае совершения ошибок при выполнении манёвров кандидату предоставляется возможность повторного выполнения данного манёвра.</p>
-    </div>
-
-    <div class="card">
-      <h3>Время проведения</h3>
-      <p><b>Категории «B», «C», «D», «C1», «D1»:</b> не более 30 минут.</p>
-      <p><b>Категория «BE»:</b> не более 40 минут.</p>
-      <p><b>Категории «CE», «DE», «C1E», «D1E»:</b> не более 50 минут.</p>
-      <p>При наличии непроверенных манёвров при истечении установленного времени проведение экзамена продолжается до завершения проверки всех манёвров.</p>
-    </div>
-
-    <div class="card">
-      <h3>Подготовка к экзамену</h3>
-      <p>Перед началом экзамена экзаменатор обеспечивает: двигатель прогрет, органы управления КПП в нейтральном положении (для АКПП — положение «P»), стояночный тормоз включён, средства аудио-видеорегистрации включены.</p>
-      <p>Кандидат в водители осуществляет подготовку к движению, информирует экзаменатора о готовности и по команде начинает движение по маршруту.</p>
-    </div>
-
-    <div class="card">
-      <h3>Роль экзаменатора</h3>
-      <p>Кандидат в водители находится за органами управления, экзаменатор — за дублирующими органами управления.</p>
-      <p>Экзаменатор заблаговременно подаёт команды о направлении движения и выполнении манёвров, контролирует соблюдение ПДД, фиксирует ошибки в экзаменационном листе и вмешивается в процесс управления только в целях предотвращения ДТП.</p>
-    </div>
-
-    <div class="card">
-      <h3>Система оценки</h3>
-      <p>Экзамен оценивается: положительная оценка — «СДАЛ», отрицательная — «НЕ СДАЛ».</p>
-      <p><b>Экзамен прекращается и выставляется «НЕ СДАЛ», если кандидат:</b></p>
-      <p>• допустил 1 ошибку (нарушение), содержащуюся в одном из пунктов 2.1–2.14 экзаменационного листа;</p>
-      <p>• допустил ошибки (нарушения), содержащиеся в пунктах 3.1–6.4, сумма штрафных баллов которых составляет 7 и более баллов.</p>
-    </div>
-
-    <div class="card">
-      <h3>Штрафные баллы</h3>
-      <p>За совершение каждой ошибки (нарушения) начисляются штрафные баллы:</p>
-      <p><b>Пункты 3.1–3.6</b> — 4 штрафных балла</p>
-      <p><b>Пункты 4.1–4.9</b> — 3 балла</p>
-      <p><b>Пункты 5.1–5.4</b> — 2 балла</p>
-      <p><b>Пункты 6.1–6.4</b> — 1 балл</p>
-    </div>
-
-    <div class="card">
-      <h3>Фиксация результата</h3>
-      <p>По завершении экзамена экзаменационный лист подписывается экзаменатором и кандидатом в водители. Кандидату, показавшему отрицательный результат, разъясняются допущенные ошибки и порядок проведения повторного экзамена.</p>
-      <p>Фиксация процесса экзамена средствами аудио-видеорегистрации осуществляется от момента подачи команды занять водительское место до подписания экзаменационного листа. Информация хранится не менее 1 месяца.</p>
-      <p>При технической неисправности ТС проведение экзамена прекращается и возобновляется после устранения неисправности либо на другом ТС. Проверенные навыки повторной проверке не подлежат.</p>
-    </div>
-  </section>
-
   <!-- ВКЛАДКА: ЗАДАНИЯ -->
-  <section class="tab" id="tab-tasks">
+  <section class="tab active" id="tab-tasks">
     <h2 class="h2">Задания экзамена</h2>
     <p class="sub">Навыки управления транспортным средством, подлежащие проверке (пункты 1.1–1.19 экзаменационного листа). Нажмите на задание, чтобы увидеть описание.</p>
     <div id="tasks-list"></div>
@@ -271,25 +167,6 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
     <div id="errors-list"></div>
   </section>
 
-  <!-- ВКЛАДКА: ТРЕНАЖЁР -->
-  <section class="tab" id="tab-sim">
-    <h2 class="h2">Тренажёр экзамена</h2>
-    <p class="sub">Отмечайте допущенные ошибки кнопками «+» и «−». Приложение подсчитает штрафные баллы и покажет результат экзамена.</p>
-
-    <div class="score-panel">
-      <div class="row">
-        <div class="big ok" id="sim-score">0</div>
-        <div class="info">
-          <div class="verdict ok" id="sim-verdict">Пока сдаёте — 0 баллов</div>
-          <div class="segbar" id="sim-segs"></div>
-        </div>
-      </div>
-      <button class="reset-btn" id="sim-reset">Сбросить всё</button>
-    </div>
-
-    <div id="sim-list"></div>
-  </section>
-
   <!-- ВКЛАДКА: ПДД -->
   <section class="tab" id="tab-pdd">
     <h2 class="h2">Пункты ПДД</h2>
@@ -300,21 +177,13 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 </main>
 
 <nav class="tabbar">
-  <button data-tab="tab-exam" class="on">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg>
-    Экзамен
-  </button>
-  <button data-tab="tab-tasks">
+  <button data-tab="tab-tasks" class="on">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5h10M9 12h10M9 19h10"/><path d="M4 6l1.5 1.5L8 5M4 13l1.5 1.5L8 13M4 20l1.5 1.5L8 20" stroke-linejoin="round"/></svg>
     Задания
   </button>
   <button data-tab="tab-errors">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L2 20h20L12 3z" stroke-linejoin="round"/><path d="M12 10v4"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
     Ошибки
-  </button>
-  <button data-tab="tab-sim">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15a8 8 0 1 1 16 0"/><path d="M12 15l3.5-3.5"/><path d="M4 19h16"/></svg>
-    Тренажёр
   </button>
   <button data-tab="tab-pdd">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4z"/><path d="M9 7h6M9 11h6"/></svg>
@@ -934,104 +803,6 @@ function toggleItem(head){
   head.closest('.err-item').classList.toggle('open');
 }
 
-/* ===== ТРЕНАЖЁР ===== */
-const simState = {};
-ERRORS.forEach(e=>{ simState[e.id]=0; });
-
-function renderSim(){
-  const wrap = document.getElementById('sim-list');
-  let html = '';
-  let lastSec = '';
-  ERRORS.forEach(e=>{
-    if(e.sec!==lastSec){
-      lastSec = e.sec;
-      const labels = {s2:['Раздел 2 — несдача','Одна ошибка — экзамен прекращается.','s2'],
-        s3:['Раздел 3 — 4 балла','За каждую ошибку — 4 штрафных балла.','s3'],
-        s4:['Раздел 4 — 3 балла','За каждую ошибку — 3 балла.','s4'],
-        s5:['Раздел 5 — 2 балла','За каждую ошибку — 2 балла.','s5'],
-        s6:['Раздел 6 — 1 балл','За каждую ошибку — 1 балл.','s6']};
-      const l = labels[e.sec];
-      html += `<div class="sect-banner ${l[2]}"><b>${l[0]}</b>${l[1]}</div>`;
-    }
-    const isFatal = e.sec==='s2';
-    html += `
-    <div class="sim-item ${isFatal?'fatal':''}" data-id="${e.id}">
-      <span class="t">${e.id}. ${e.title}<span class="sub">${isFatal?'несдача':'+'+e.pts+' балл'+(e.pts===1?'':(e.pts<5?'а':'ов'))}</span></span>
-      <span class="ctrl">
-        <button class="btn minus" onclick="simChange('${e.id}',-1)">−</button>
-        <span class="cnt" id="cnt-${e.id}">0</span>
-        <button class="btn plus" onclick="simChange('${e.id}',1)">+</button>
-      </span>
-    </div>`;
-  });
-  wrap.innerHTML = html;
-}
-
-function simChange(id,delta){
-  const e = ERRORS.find(x=>x.id===id);
-  if(!e) return;
-  let v = simState[id]||0;
-  v += delta;
-  if(v<0) v=0;
-  if(e.sec==='s2' && v>1) v=1;
-  simState[id]=v;
-  document.getElementById('cnt-'+id).textContent = v;
-  const item = document.querySelector(`.sim-item[data-id="${id}"]`);
-  if(item) item.classList.toggle('has', v>0);
-  updateScore();
-}
-
-function updateScore(){
-  let total = 0;
-  let fatal = false;
-  ERRORS.forEach(e=>{
-    const v = simState[e.id]||0;
-    if(v>0){
-      if(e.sec==='s2') fatal = true;
-      else total += v * e.pts;
-    }
-  });
-  const scoreEl = document.getElementById('sim-score');
-  const verdictEl = document.getElementById('sim-verdict');
-  const segsEl = document.getElementById('sim-segs');
-  scoreEl.textContent = total;
-  scoreEl.className = 'big ' + (fatal||total>=7?'fail':total>=4?'ok':'ok');
-  if(fatal){
-    verdictEl.textContent = 'НЕ СДАЛ — допущена ошибка раздела 2';
-    verdictEl.className = 'verdict fail';
-    scoreEl.className = 'big fail';
-  } else if(total>=7){
-    verdictEl.textContent = 'НЕ СДАЛ — сумма баллов 7 и более';
-    verdictEl.className = 'verdict fail';
-    scoreEl.className = 'big fail';
-  } else if(total>=4){
-    verdictEl.textContent = 'Пока сдаёте — но запас мал';
-    verdictEl.className = 'verdict warn';
-    scoreEl.className = 'big ok';
-  } else {
-    verdictEl.textContent = 'Пока сдаёте — 0 баллов';
-    verdictEl.className = 'verdict ok';
-    scoreEl.className = 'big ok';
-  }
-  segsEl.innerHTML = '';
-  for(let i=0;i<7;i++){
-    const seg = document.createElement('div');
-    seg.className = 'seg' + (i<total ? (total>=7?' fill':i>=4?' fill warn':' fill ok') : '');
-    segsEl.appendChild(seg);
-  }
-}
-
-document.getElementById('sim-reset').addEventListener('click',()=>{
-  ERRORS.forEach(e=>{
-    simState[e.id]=0;
-    const c = document.getElementById('cnt-'+e.id);
-    if(c) c.textContent='0';
-    const item = document.querySelector(`.sim-item[data-id="${e.id}"]`);
-    if(item) item.classList.remove('has');
-  });
-  updateScore();
-});
-
 /* ===== РЕНДЕР ПДД ===== */
 function renderPdd(filter=''){
   const wrap = document.getElementById('pdd-list');
@@ -1100,8 +871,6 @@ document.querySelectorAll('.tabbar button').forEach(btn=>{
 /* ===== ИНИЦИАЛИЗАЦИЯ ===== */
 renderTasks();
 renderErrors();
-renderSim();
-updateScore();
 renderPdd();
 </script>
 </body>
