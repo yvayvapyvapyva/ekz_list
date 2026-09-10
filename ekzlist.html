@@ -95,11 +95,6 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 .sit-list li::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px}
 .err-desc{font-size:13.5px;color:#3d4450;background:#f6f5ef;padding:10px 12px;border-radius:8px}
 
-.filterbar{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
-.filterbar::-webkit-scrollbar{display:none}
-.fbtn{flex-shrink:0;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:13px;font-weight:600;color:var(--mut);transition:all .2s}
-.fbtn.on{background:var(--asphalt);border-color:var(--asphalt);color:var(--yellow)}
-
 .sect-banner{border-radius:12px;padding:12px 14px;margin:18px 0 12px;color:#fff;font-size:13px;font-weight:600}
 .sect-banner.s2{background:var(--red-d)}
 .sect-banner.s3{background:var(--orange)}
@@ -109,12 +104,6 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 .sect-banner b{font-family:var(--disp);font-size:14px;display:block;margin-bottom:2px}
 
 /* ПДД */
-.pdd-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
-.pdd-item .num{font-family:var(--disp);font-size:14px;color:var(--blue);margin-bottom:6px}
-.pdd-item .text{font-size:13.5px;color:#3d4450;line-height:1.5}
-.search-box{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-size:15px;margin-bottom:14px;outline:none}
-.search-box:focus{border-color:var(--blue)}
-
 /* Модальное окно */
 .modal-back{position:fixed;inset:0;background:rgba(20,23,28,.6);z-index:100;display:none;align-items:flex-end;justify-content:center}
 .modal-back.show{display:flex}
@@ -141,7 +130,6 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
   <!-- ВКЛАДКА: ЗАДАНИЯ -->
   <section class="tab active" id="tab-tasks">
     <h2 class="h2">Задания экзамена</h2>
-    <p class="sub">Навыки управления транспортным средством, подлежащие проверке (пункты 1.1–1.19 экзаменационного листа). Нажмите на задание, чтобы увидеть описание.</p>
     <div id="tasks-list"></div>
   </section>
 
@@ -150,29 +138,7 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
     <h2 class="h2">Ошибки и нарушения</h2>
     <p class="sub">Ошибки и нарушения, допущенные в процессе экзамена, с указанием штрафных баллов и типичных ситуаций.</p>
 
-    <div class="banner red">
-      <b>Раздел 2 — ошибки, экзамен прекращается</b>
-      <p>Одна ошибка (нарушение), содержащаяся в одном из пунктов 2.1–2.14, — экзамен прекращается и выставляется оценка «НЕ СДАЛ».</p>
-    </div>
-
-    <div class="filterbar" id="err-filters">
-      <button class="fbtn on" data-f="all">Все</button>
-      <button class="fbtn" data-f="s2">Раздел 2 · несдача</button>
-      <button class="fbtn" data-f="s3">Раздел 3 · 4 балла</button>
-      <button class="fbtn" data-f="s4">Раздел 4 · 3 балла</button>
-      <button class="fbtn" data-f="s5">Раздел 5 · 2 балла</button>
-      <button class="fbtn" data-f="s6">Раздел 6 · 1 балл</button>
-    </div>
-
     <div id="errors-list"></div>
-  </section>
-
-  <!-- ВКЛАДКА: ПДД -->
-  <section class="tab" id="tab-pdd">
-    <h2 class="h2">Пункты ПДД</h2>
-    <p class="sub">Полные тексты пунктов Правил дорожного движения, на которые ссылается контрольная таблица экзамена (Приложение № 5 к Административному регламенту). ПДД РФ, утверждённые постановлением Правительства РФ от 23.10.1993 № 1090 (действуют до 01.03.2029).</p>
-    <input type="search" class="search-box" id="pdd-search" placeholder="Поиск по пунктам ПДД...">
-    <div id="pdd-list"></div>
   </section>
 </main>
 
@@ -184,10 +150,6 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
   <button data-tab="tab-errors">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L2 20h20L12 3z" stroke-linejoin="round"/><path d="M12 10v4"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
     Ошибки
-  </button>
-  <button data-tab="tab-pdd">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4z"/><path d="M9 7h6M9 11h6"/></svg>
-    ПДД
   </button>
 </nav>
 
@@ -343,18 +305,10 @@ const TASKS = [
 {id:"1.15",title:"Торможение и остановка при движении на различных скоростях",
  desc:"Кандидат в водители выполняет торможение и остановку при движении на различных скоростях, включая экстренное торможение. Водитель должен уметь плавно снижать скорость и выполнять остановку транспортного средства, а также применять экстренное торможение при необходимости предотвращения дорожно-транспортного происшествия.",
  pdd:["10.1","10.5","12.1"],errors:["6.3.2","5.4","4.1"]},
-{id:"1.16",title:"Прямолинейное движение задним ходом и парковка для погрузки (разгрузки) на погрузочной эстакаде (платформе)",
- desc:"Только для транспортных средств категорий «C» и «CE» и подкатегорий «C1» и «C1E». Кандидат в водители осуществляет движение задним ходом при однократном включении передачи заднего хода в пределах зоны выполнения маневра и устанавливает транспортное средство в конце места выполнения маневра так, чтобы задняя проекция транспортного средства находилась на расстоянии не более контрольного значения от задней границы. Критерии выполнения: отсутствие использования включения передачи заднего хода два и более раз; отсутствие пересечения проекциями габаритов либо наезда колесом на боковые и заднюю границы; по завершении маневра расстояние от проекции заднего габарита до задней границы не превышает контрольного значения.",
- pdd:["8.12","8.1"],errors:["4.8","2.11"]},
-{id:"1.17",title:"Сцепление и расцепление или расцепление и повторное сцепление прицепа с тягачом",
- desc:"Только для транспортных средств категорий «BE», «CE» и «DE» и подкатегорий «C1E» и «D1E», за исключением сочлененных автобусов. Выполнение маневра осуществляется в два поочередных действия: первое действие — «Расцепление прицепа с тягачом» и второе действие — «Сцепление прицепа с тягачом». Время на выполнение маневра составляет не более 10 минут. Критерии выполнения: время выполнения маневра не более 10 минут; последовательность расцепления и сцепления не нарушена; по завершении сцепления электрооборудование и тормозная система прицепа подключены к тягачу и исправно работают.",
- pdd:["8.12","8.1"],errors:["4.9","2.11"]},
+
 {id:"1.18",title:"Разворот на перекрестке и вне перекрестка",
- desc:"Только для транспортных средств категорий «BE», «CE» и «DE» и подкатегорий «C1E» и «D1E» при наличии возможности осуществления разворота. Кандидат в водители выполняет разворот на перекрестке и вне перекрестка. При повороте налево или развороте вне перекрестка водитель безрельсового транспортного средства обязан уступить дорогу встречным транспортным средствам и трамваю попутного направления.",
- pdd:["8.8","8.11","8.5","8.6","13.11","13.12","13.11(1)"],errors:["2.10","2.2","4.2"]},
-{id:"1.19",title:"Остановка для безопасной посадки или высадки пассажиров",
- desc:"Только для транспортных средств категорий «D» и «DE» и подкатегорий «D1» и «D1E». Проверка осуществляется при проверке выполнения маневра «Постановка транспортного средства параллельно тротуару (краю проезжей части) при движении по направлению вперед». Кандидат в водители по команде экзаменатора выбирает место для остановки, останавливается, фиксирует транспортное средство в неподвижном состоянии, по командам экзаменатора осуществляет открытие и последующее закрытие дверей, предназначенных для посадки и высадки пассажиров (за исключением аварийных выходов), и по команде продолжает движение. Критерии выполнения: во время открытия и закрытия дверей транспортное средство находилось в неподвижном состоянии; осуществлено открытие и закрытие дверей.",
- pdd:["12.1","22.7","12.7","12.8"],errors:["3.4","4.1","4.2"]}
+ desc:"Кандидат в водители выполняет разворот на перекрестке и вне перекрестка. При повороте налево или развороте вне перекрестка водитель безрельсового транспортного средства обязан уступить дорогу встречным транспортным средствам и трамваю попутного направления. Разворот запрещается на пешеходных переходах, в тоннелях, на мостах, путепроводах, эстакадах и под ними, на железнодорожных переездах, в местах с видимостью дороги менее 100 м, а также в местах остановок маршрутных транспортных средств.",
+ pdd:["8.8","8.11","8.5","8.6","13.11","13.12","13.11(1)"],errors:["2.10","2.2","4.2"]}
 ];
 
 /* ===== ДАННЫЕ: ОШИБКИ ===== */
@@ -752,10 +706,9 @@ function renderTasks(){
 }
 
 /* ===== РЕНДЕР ОШИБОК ===== */
-let errFilter = 'all';
 function renderErrors(){
   const wrap = document.getElementById('errors-list');
-  const filtered = ERRORS.filter(e=>errFilter==='all'||e.sec===errFilter);
+  const filtered = ERRORS;
   if(!filtered.length){ wrap.innerHTML = '<div class="empty-msg">Нет ошибок в выбранном разделе</div>'; return; }
 
   let html = '';
@@ -763,13 +716,13 @@ function renderErrors(){
   filtered.forEach(e=>{
     if(e.sec!==lastSec){
       lastSec = e.sec;
-      const labels = {s2:['Раздел 2 — ошибки, экзамен прекращается',' Одна ошибка (нарушение) из пунктов 2.1–2.14 — экзамен прекращается, оценка «НЕ СДАЛ».','s2'],
-        s3:['Раздел 3 — ошибки по 4 балла','За каждую ошибку начисляется 4 штрафных балла.','s3'],
-        s4:['Раздел 4 — ошибки по 3 балла','За каждую ошибку начисляется 3 балла.','s4'],
-        s5:['Раздел 5 — ошибки по 2 балла','За каждую ошибку начисляется 2 балла.','s5'],
-        s6:['Раздел 6 — ошибки по 1 баллу','За каждую ошибку начисляется 1 балл.','s6']};
+      const labels = {s2:['7 баллов','Несдача','s2'],
+        s3:['4 балла','','s3'],
+        s4:['3 балла','','s4'],
+        s5:['2 балла','','s5'],
+        s6:['1 балл','','s6']};
       const l = labels[e.sec];
-      html += `<div class="sect-banner ${l[2]}"><b>${l[0]}</b>${l[1]}</div>`;
+      html += `<div class="sect-banner ${l[2]}"><b>${l[0]}</b>${l[1]?l[1]:''}</div>`;
     }
     html += `
     <div class="err-item" data-id="${e.id}">
@@ -790,39 +743,9 @@ function renderErrors(){
   wrap.innerHTML = html;
 }
 
-document.querySelectorAll('#err-filters .fbtn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('#err-filters .fbtn').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    errFilter = btn.dataset.f;
-    renderErrors();
-  });
-});
-
 function toggleItem(head){
   head.closest('.err-item').classList.toggle('open');
 }
-
-/* ===== РЕНДЕР ПДД ===== */
-function renderPdd(filter=''){
-  const wrap = document.getElementById('pdd-list');
-  const q = filter.toLowerCase().trim();
-  const entries = Object.entries(PDD).filter(([k,v])=>{
-    if(!q) return true;
-    return k.toLowerCase().includes(q) || v.t.toLowerCase().includes(q);
-  });
-  if(!entries.length){ wrap.innerHTML = '<div class="empty-msg">Пункты не найдены</div>'; return; }
-  wrap.innerHTML = entries.map(([k,v])=>`
-    <div class="pdd-item">
-      <div class="num">Пункт ${k}</div>
-      <div class="text">${v.t}</div>
-    </div>
-  `).join('');
-}
-
-document.getElementById('pdd-search').addEventListener('input',e=>{
-  renderPdd(e.target.value);
-});
 
 /* ===== МОДАЛЬНОЕ ОКНО ===== */
 function openPdd(id){
@@ -871,7 +794,6 @@ document.querySelectorAll('.tabbar button').forEach(btn=>{
 /* ===== ИНИЦИАЛИЗАЦИЯ ===== */
 renderTasks();
 renderErrors();
-renderPdd();
 </script>
 </body>
 </html>
