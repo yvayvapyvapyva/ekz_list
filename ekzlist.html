@@ -70,9 +70,10 @@ main{max-width:900px;margin:0 auto;padding:16px 14px 24px}
 .sit-list li{position:relative;padding:8px 10px 8px 30px;background:#fff7ed;border-left:3px solid var(--orange);border-radius:0 8px 8px 0;font-size:13.5px;color:#5c3a1e;margin-bottom:6px}
 .sit-list li::before{content:"⚠";position:absolute;left:9px;top:8px;font-size:13px}
 .cmd-block{white-space:pre-line;background:var(--blue-bg);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px;font-size:13.5px;color:#173a63;line-height:1.6}
+.desc-block{white-space:pre-line;background:#eef7f0;border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:10px 12px;font-size:13.5px;color:#1f5c36;line-height:1.6}
 .attention-block{white-space:pre-line;background:#fff7ed;border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:10px 12px;font-size:13.5px;color:#5c3a1e;line-height:1.6}
 .examples-block{white-space:pre-line;background:#f6f5ef;border-left:3px solid var(--mut);border-radius:0 8px 8px 0;padding:10px 12px;font-size:13.5px;color:#3d4450;line-height:1.6}
-.err-desc{font-size:13.5px;color:#3d4450;background:#f6f5ef;padding:10px 12px;border-radius:8px;white-space:pre-line;line-height:1.6}
+
 
 .sect-banner{border-radius:12px;padding:12px 14px;margin:18px 0 12px;color:#fff;font-size:13px;font-weight:600}
 .sect-banner.s2{background:var(--red-d)}
@@ -160,7 +161,7 @@ function renderTasks(){
         <div class="label">Варианты команды экзаменатора</div>
         <div class="cmd-block">${t.commands}</div>
         <div class="label">Описание манёвра</div>
-        <div class="err-desc">${t.desc}</div>
+        <div class="desc-block">${t.desc}</div>
         <div class="label">На что обратить особое внимание</div>
         <div class="attention-block">${t.attention}</div>
       </div></div></div>
